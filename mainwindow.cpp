@@ -13,8 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     verticalSlider_3->setMaximum(1000);
 
     verticalSlider->setValue(20);   //separate
-    verticalSlider_2->setValue(30); //cohesion
-    verticalSlider_3->setValue(105);  //velocity cohesion
+    verticalSlider_2->setValue(40); //cohesion
+    verticalSlider_3->setValue(20);  //velocity cohesion
     horizontalSlider->setValue(50);
 
 

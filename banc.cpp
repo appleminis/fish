@@ -14,7 +14,7 @@ banc::banc(int _np)
 
 	for (int i=0; i<np; i++)
 	{
-        ps[i].p=vect().random()*4-vect(1,1,1)*5;
+        ps[i].p=(vect().random()*4-vect(1,1,1)*2)*2;
         ps[i].v=(vect().random()-vect(1,1,1)*0.1)*0.1*0+vect(1,0,0)*0;
 		ps[i].sz=1;
         ps[i].vs=10;

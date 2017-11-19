@@ -14,17 +14,17 @@ banc::banc(int _np)
 
 	for (int i=0; i<np; i++)
 	{
-        ps[i].p=vect().random()*4-vect(1,1,1)*6;
-        ps[i].v=(vect().random()-vect(1,1,1)*0.5)*0.1*0+vect(1,0,0)*0;
+        ps[i].p=vect().random()*4-vect(1,1,1)*5;
+        ps[i].v=(vect().random()-vect(1,1,1)*0.1)*0.1*0+vect(1,0,0)*0;
 		ps[i].sz=1;
         ps[i].vs=10;
 	}
 
     fco = (float)dop/(15*2.0);
 
-    ob = new obstacle[no=5];
+    ob = new obstacle[no=1];
     ob[0].r=15;
-    ob[1].r=3;
+    /*ob[1].r=3;
     ob[1].p=vect(11,1,0);
 
     ob[2].r=5;
@@ -34,7 +34,7 @@ banc::banc(int _np)
     ob[3].p=vect(-10,0,0);
 
     ob[4].r=5;
-    ob[4].p=vect(0,3,-10);
+    ob[4].p=vect(0,3,-10);*/
 
     for (int i=0; i<dop; i++) for (int j=0; j<dop; j++) for (int k=0; k<dop; k++)
     {
@@ -155,7 +155,7 @@ void banc::anime ()
                         vp = p->p-pv->p;
                         d=vp.normec();
                         vp.multiplier_par(1.0/d);
-                        if (d<p->vs && vn*vp<0.75)
+                        if (d<p->vs && vn*vp<-0.25)
                         {
                             nbv++;
                             vm+=pv->v;
@@ -198,7 +198,7 @@ void banc::anime ()
             //if (d*d<p->vs)
             {
                 float rp=d-ob[j].r;
-                nv[i] += (ob[j].p-p->p).normal()*(4.0/(rp*rp*10+0.1))*(rp>0?-1:1);
+                nv[i] += (ob[j].p-p->p).normal()*(4.0/(rp*rp*20+0.1))*(rp>0?-1:1);
             }
         }
     }
@@ -206,8 +206,8 @@ void banc::anime ()
 
 	for (int i=0; i<np; i++)
 	{
-		ps[i].v=ps[i].v*(1-il)+nv[i]*il;
-        ps[i].anime(0.2);
+        ps[i].v=ps[i].v*(1-il)+nv[i]*il;
+        ps[i].anime(0.1);
 	}
 
     delete []nv;

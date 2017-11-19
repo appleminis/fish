@@ -34,7 +34,7 @@ void Glwidget::resizeGL(int width, int height)
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity( );
-    gluPerspective(80,aspect,.1,100000);
+    gluPerspective(60,aspect,.1,100000);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
@@ -45,7 +45,7 @@ void Glwidget::paintGL()
 
    glLoadIdentity();
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   gluLookAt ( sin(_t)*20,0,cos(_t)*20,0,0,0,0,1,0);
+   gluLookAt ( sin(_t)*30,0,cos(_t)*30,0,0,0,0,1,0);
 
    b->anime();
    b->aff();

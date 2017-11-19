@@ -13,7 +13,7 @@
 
 using namespace std;
 
-#define dop 20
+#define dop 30
 
 class banc
 {

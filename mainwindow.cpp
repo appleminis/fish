@@ -10,10 +10,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     glw->button1click();
 
-    on_verticalSlider_valueChanged(50);
-    on_verticalSlider_2_valueChanged(10);
-    on_verticalSlider_3_valueChanged(50);
-    on_horizontalSlider_valueChanged(30);
+    verticalSlider_3->setMaximum(1000);
+
+    verticalSlider->setValue(20);   //separate
+    verticalSlider_2->setValue(30); //cohesion
+    verticalSlider_3->setValue(105);  //velocity cohesion
+    horizontalSlider->setValue(50);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -33,12 +37,12 @@ void MainWindow::on_verticalSlider_2_valueChanged(int value)
 
 void MainWindow::on_verticalSlider_3_valueChanged(int value)
 {
-    glw->b->alig=value/100.0;
+    glw->b->alig=value/1000.0;
 }
 
 void MainWindow::on_verticalSlider_valueChanged(int value)
 {
-    glw->b->sepa=value/500.0;
+    glw->b->sepa=value/100.0;
 }
 
 void MainWindow::on_horizontalSlider_valueChanged(int value)
